@@ -12,7 +12,7 @@ COPY . .
 # Install Medusa CLI globally (optional, for CLI usage within the container)
 RUN yarn global add @medusajs/medusa-cli
 
-RUN npm ci
+RUN yarn install
 
 # Build the Medusa application
 RUN npx medusa build --admin-only
