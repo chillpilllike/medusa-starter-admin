@@ -13,7 +13,7 @@ COPY . .
 RUN yarn global add @medusajs/medusa-cli
 
 # Build the Medusa application
-RUN yarn build --admin-only
+RUN npx medusa build --admin-only
 
 WORKDIR /app/.medusa/admin
 
