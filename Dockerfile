@@ -12,12 +12,12 @@ COPY . .
 # Install Medusa CLI globally (optional, for CLI usage within the container)
 RUN yarn global add @medusajs/medusa-cli
 
+RUN npm ci
+
 # Build the Medusa application
 RUN npx medusa build --admin-only
 
 WORKDIR /app/.medusa/admin
-
-RUN yarn install
 
 # Expose the application's default port
 EXPOSE 9000
