@@ -1,4 +1,5 @@
 import { loadEnv, defineConfig } from '@medusajs/framework/utils'
+import { Modules } from "@medusajs/framework/utils" // Added Modules import
 
 loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
@@ -19,4 +20,14 @@ module.exports = defineConfig({
     backendUrl: process.env.MEDUSA_BACKEND_URL,
     path: process.env.MEDUSA_ADMIN_PATH,
   },
+  modules: [ // Added modules configuration
+    {
+      resolve: "@medusajs/medusa/workflow-engine-redis",
+      options: {
+        redis: {
+          url: process.env.WE_REDIS_URL,
+        },
+      },
+    },
+  ],
 })
