@@ -10,7 +10,7 @@ COPY package.json yarn.lock ./
 COPY . .
 
 # Install Medusa CLI globally (optional, for CLI usage within the container)
-# RUN yarn global add @medusajs/medusa-cli
+RUN yarn global add @medusajs/medusa-cli
 
 # Build the Medusa application
 RUN yarn build --admin-only
